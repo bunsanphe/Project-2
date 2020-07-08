@@ -1,12 +1,14 @@
 {
-  "name": "app",
+  "name": "1-Passport-Example",
   "version": "1.0.0",
   "description": "",
   "main": "server.js",
   "scripts": {
     "test": "npm run lint",
     "start": "node server.js",
-    "lint": "eslint --quiet ."
+    "lint": "eslint --quiet .",
+    "fix": "eslint --fix .",
+    "watch": "nodemon server.js"
   },
   "keywords": [],
   "author": "",
