@@ -6,8 +6,8 @@ module.exports = function(sequelize, DataTypes) {
     }
   });
   Playlist.associate = function(models) {
-    Playlist.belongsTo(models.User);
-    Playlist.hasMany(models.Song);
+    Playlist.belongsTo(models.User, { foreignKey: { allowNull: false } });
+    Playlist.hasMany(models.Song, { foreignKey: { allowNull: false } });
   };
   return Playlist;
 };
