@@ -51,3 +51,4 @@ module.exports = function(app) {
     }
   });
 };
+// Create playlist route that displays the list of songs to user
