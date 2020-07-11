@@ -5,7 +5,7 @@ USE playlist_db;
 CREATE TABLE playlist (
     id INT AUTO_INCREMENT NOT NULL,
     username_id VARCHAR(30) NOT NULL,
-    playlist_name VARCHAR(30) NOT NULL,
+    playlist_name VARCHAR(30),
     PRIMARY KEY (id)
 );
 
@@ -19,6 +19,6 @@ CREATE TABLE songs (
     artist VARCHAR(100) NOT NULL,
     song_title VARCHAR(100),
     album VARCHAR(100),
-    playlist_id VARCHAR (30) NOT NULL
+    playlist_id VARCHAR (30),
     PRIMARY KEY (song_api_id)
 );
