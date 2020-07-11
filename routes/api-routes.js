@@ -51,4 +51,8 @@ module.exports = function(app) {
     }
   });
 };
-// Create playlist route that displays the list of songs to user
+
+// Create route that displays the list of playlists
+// Create route to add song to playlist
+// Create route to delete song(s) from playlist
+// Create route to delete playlist
