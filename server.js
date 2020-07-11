@@ -22,7 +22,7 @@ app.use(passport.initialize());
 app.use(passport.session());
 
 //handlebars
-app.engine("handlebars", exphbs({defaultLayout: "main" }));
+app.engine("handlebars", exphbs({ defaultLayout: "main" }));
 app.set("view engine", "handlebars");
 
 // Requiring our routes
