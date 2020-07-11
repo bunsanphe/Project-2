@@ -8,7 +8,5 @@ VALUES (3, "Pink Floyd", "Time");
 INSERT INTO playlist (username_id, playlist_name)
 VALUES (1, "New Playlist");
 
-INSERT INTO user (username)
-VALUES ("user1@gmail.com");
 
 
