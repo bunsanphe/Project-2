@@ -8,6 +8,7 @@ router.get("/playlist", (req, res) => {
       playlist: results
     });
   });
+  console.log("test");
 });
 
 module.exports = router;
