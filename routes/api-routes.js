@@ -51,6 +51,7 @@ module.exports = function(app) {
     }
   });
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
   // Create route that displays the list of playlists
   app.get("/api/playlist", (req, res) => {
@@ -75,4 +76,6 @@ module.exports = function(app) {
     });
   });
 >>>>>>> ed92346e3b9a36a6ef7dac923d95f6e46c00aff2
+=======
+>>>>>>> e05dbcfb726573134621b104ea122308b19b23b9
 };
