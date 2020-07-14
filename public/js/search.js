@@ -32,9 +32,15 @@ function listResults(res) {
     console.log(result);
 
     const li = $("<li></li>");
-    const title = $(`<a href=${result.link}><h4>Title: ${result.title}</h4></a>`);
-    const artist = $(`<img src=${result.artist.picture_small}><p>Artist: ${result.artist.name}</p>`);
-    const album = $(`<img src=${result.album.cover_small}><p>Album: ${result.album.title}</p>`);
+    const title = $(
+      `<a href=${result.link}><h4>Title: ${result.title}</h4></a>`
+    );
+    const artist = $(
+      `<img src=${result.artist.picture_small}><p>Artist: ${result.artist.name}</p>`
+    );
+    const album = $(
+      `<img src=${result.album.cover_small}><p>Album: ${result.album.title}</p>`
+    );
     const sample = $(`<p>Sample</p><audio controls>
     <source src="${result.preview}" type="audio/mpeg">
     Your browser does not support the audio tag.
