@@ -26,11 +26,31 @@ $(document).ready(() => {
 });
 
 function listResults(res) {
-  $("#results").append($("<h4>Results</h4>"));
+  $("#results").prepend($("<h2>Results</h2><br>"));
 
   res.data.forEach(result => {
     console.log(result);
 
-    //const li = $("");
+    const li = $("<li></li>");
+    const title = $(
+      `<a href=${result.link}><h4>Title: ${result.title}</h4></a>`
+    );
+    const artist = $(
+      `<img src=${result.artist.picture_small}><p>Artist: ${result.artist.name}</p>`
+    );
+    const album = $(
+      `<img src=${result.album.cover_small}><p>Album: ${result.album.title}</p>`
+    );
+    const sample = $(`<p>Sample</p><audio controls>
+    <source src="${result.preview}" type="audio/mpeg">
+    Your browser does not support the audio tag.
+  </audio>`);
+
+    li.append(title)
+      .append(artist)
+      .append(album)
+      .append(sample);
+
+    $("#resList").append(li);
   });
 }
