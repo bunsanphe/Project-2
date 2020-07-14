@@ -10,15 +10,20 @@ module.exports = function(app) {
       query.UserId = req.query.user_id;
     }
     db.Playlist.findAll({}).then(dbPlaylist => {
-      res.json(dbPlaylist);
+      res.render("members", dbPlaylist);
     });
   });
 
   //create playlist
   app.post("/api/playlist", (req, res) => {
-    db.Playlist.create(req.body).then(dbPlaylist => {
+    db.Playlist.create({
+      playlistName: req.body.playlistName,
+      UserId: req.user.id
+    }).then(dbPlaylist => {
       res.json(dbPlaylist);
     });
+    console.log(req.body);
+    console.log(req.user.id);
   });
 
   // route to select one playlist

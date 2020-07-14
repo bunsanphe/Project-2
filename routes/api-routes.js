@@ -50,32 +50,4 @@ module.exports = function(app) {
       });
     }
   });
-<<<<<<< HEAD
-<<<<<<< HEAD
-=======
-  // Create route that displays the list of playlists
-  app.get("/api/playlist", (req, res) => {
-    db.Playlist.findAll({}).then(dbPlaylist => {
-      console.log(dbPlaylist);
-      res.json(dbPlaylist);
-    });
-  });
-
-  // Create route to add song to playlist
-
-  // Create route to delete song(s) from playlist
-
-  // Create route to delete playlist
-  app.delete("/api/playlist/:id", (req, res) => {
-    db.Playlist.destroy(req.body, {
-      where: {
-        id: req.body.id
-      }
-    }).then(dbPlaylist => {
-      res.json(dbPlaylist);
-    });
-  });
->>>>>>> ed92346e3b9a36a6ef7dac923d95f6e46c00aff2
-=======
->>>>>>> e05dbcfb726573134621b104ea122308b19b23b9
 };

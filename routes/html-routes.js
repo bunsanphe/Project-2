@@ -8,15 +8,15 @@ module.exports = function(app) {
   app.get("/", (req, res) => {
     // If the user already has an account send them to the members page
     if (req.user) {
-      res.render("/members");
+      res.render("members");
     }
-    res.render("index");
+    res.render("login");
   });
 
   app.get("/login", (req, res) => {
     // If the user already has an account send them to the members page
     if (req.user) {
-      res.render("/members");
+      res.render("members");
     }
     res.render("login");
   });
