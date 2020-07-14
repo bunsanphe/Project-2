@@ -35,6 +35,7 @@ function listResults(res) {
     res.data.forEach(result => {
         console.log(result);
 
+        let li = $("")
 
     });
 }
