@@ -22,9 +22,9 @@ try {
 }
 
 if (config.use_env_variable) {
-  const sequelize = new Sequelize(process.env[config.use_env_variable]);
+  var sequelize = new Sequelize(process.env[config.use_env_variable]);
 } else {
-  const sequelize = new Sequelize(
+  var sequelize = new Sequelize(
     config.database,
     config.username,
     process.env.DB_PASSWORD,
