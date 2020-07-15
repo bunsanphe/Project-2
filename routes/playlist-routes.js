@@ -5,13 +5,12 @@ const db = require("../models");
 module.exports = function(app) {
   // Create route that displays the list of all playlists
   app.get("/api/playlist", (req, res) => {
-    const query = {};
-    if (req.query.user_id) {
-      query.UserId = req.query.user_id;
-    }
-    db.Playlist.findAll({}).then(dbPlaylist => {
-      console.log(dbPlaylist);
-      res.render("members", { playlist: dbPlaylist });
+    db.Playlist.findAll({
+      where: {
+        UserId: req.user.id
+      }
+    }).then(dbPlaylist => {
+      res.json(dbPlaylist);
     });
   });
 
@@ -23,8 +22,6 @@ module.exports = function(app) {
     }).then(dbPlaylist => {
       res.json(dbPlaylist);
     });
-    console.log(req.body);
-    console.log(req.user.id);
   });
 
   // route to select one playlist
