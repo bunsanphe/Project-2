@@ -18,6 +18,14 @@ form.login {
 .go-btn {
   border-style: solid;
   border-radius: 1ch;
+  background-color: aquamarine;
+}
+
+.submit-btn {
+  border-style: solid;
+  border-radius: 1ch;
+  background-color: aquamarine;
+  font-weight: bold;
 }
 
 #Search {
@@ -34,4 +42,7 @@ form.login {
 
 .navbar-light .navbar-nav .active .nav-link, .navbar-light .navbar-nav .nav-link.active, .navbar-light .navbar-nav .nav-link.show, .navbar-light .navbar-nav .show>.nav-link {
   font-weight: bold;
+}
+.form-control {
+  border-radius: 1ch;
 }
