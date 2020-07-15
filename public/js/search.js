@@ -17,19 +17,42 @@ $(document).ready(() => {
       }
     };
 
-    console.log("searchTerm: " + searchTerm);
+    //console.log("searchTerm: " + searchTerm);
 
     $.ajax(settings).done(response => {
-      listResults(response);
+      $.get("/api/playlist").then(playlists => {
+        listResults(response, playlists);
+      });
     });
+  });
+
+
+  $(document).on("click", ".dropdown-item", (event) => {
+    console.log(event.target.id);
   });
 });
 
-function listResults(res) {
+function listResults(results, playlists) {
   $("#results").prepend($("<h2>Results</h2><br>"));
 
-  res.data.forEach(result => {
-    console.log(result);
+  //console.log(playlists);
+
+  //console.log(dropdown);
+
+  results.data.forEach(result => {
+    //console.log(result);
+
+    const dropdown = $("<div class=\"dropdown\"></div>");
+  const addBtn = $("<button class=\"btn btn-secondary dropdown-toggle\" type=\"button\" id=\"dropdownMenuButton\" data-toggle=\"dropdown\" aria-haspopup=\"true\" aria-expanded=\"false\">Add To Playlist</button>");
+  const ddMenu = $("<div class=\"dropdown-menu\" aria-labelledby=\"dropdownMenuButton\"></div>");
+  
+  playlists.forEach(playlist => {
+    const menuItem = $(`<button class="dropdown-item" type="button" id="${playlist.id}">${playlist.playlistName}</button>`);
+    ddMenu.append(menuItem);
+  });
+
+  dropdown.append(addBtn);
+  dropdown.append(ddMenu);
 
     const li = $("<li></li>");
     const title = $(
@@ -49,8 +72,10 @@ function listResults(res) {
     li.append(title)
       .append(artist)
       .append(album)
-      .append(sample);
+      .append(sample)
+      .append(dropdown);
 
     $("#resList").append(li);
   });
 }
+
