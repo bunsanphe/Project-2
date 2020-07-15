@@ -27,6 +27,12 @@ form.login {
   background-color: aquamarine;
   font-weight: bold;
 }
+.playlist-btn {
+  border-radius: 1ch;
+  background-color: aquamarine;
+  font-weight: bold;
+  margin-top: 10px;
+}
 
 #Search {
   border-radius: 1ch;
@@ -44,5 +50,14 @@ form.login {
   font-weight: bold;
 }
 .form-control {
+  border-radius: 1ch;
+}
+
+#create-playlist-form {
+justify-content: center;
+text-align: center;
+}
+
+#playlist {
   border-radius: 1ch;
 }
