@@ -5,7 +5,6 @@ const db = require("../models");
 module.exports = function(app) {
   // Create route that displays the list of all playlists
   app.get("/api/playlist", (req, res) => {
-
     db.Playlist.findAll({
       where: {
         UserId: req.user.id
