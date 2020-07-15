@@ -10,7 +10,8 @@ module.exports = function(app) {
       query.UserId = req.query.user_id;
     }
     db.Playlist.findAll({}).then(dbPlaylist => {
-      res.render("members", dbPlaylist);
+      console.log(dbPlaylist);
+      res.render("members", {playlist: dbPlaylist});
     });
   });
 

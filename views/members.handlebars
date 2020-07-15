@@ -23,9 +23,9 @@
   <button class="btn" type="button" id="add">Create Playlist</button>
 </form>
   <ul>
-    {{#each Playlist}}
+    {{#each playlist}}
     <li>
-      {{playlistName}}
+      {{dataValues.playlistName}}
       <button class="delete" data-id="{{id}}">Delete</button>
     </li>
     {{/each}}
