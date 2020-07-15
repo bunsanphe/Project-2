@@ -11,7 +11,7 @@ module.exports = function(app) {
     }
     db.Playlist.findAll({}).then(dbPlaylist => {
       console.log(dbPlaylist);
-      res.render("members", {playlist: dbPlaylist});
+      res.render("members", { playlist: dbPlaylist });
     });
   });
 
