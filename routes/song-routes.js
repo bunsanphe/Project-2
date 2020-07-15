@@ -13,7 +13,4 @@ module.exports = function(app) {
       res.json(dbSong);
     });
   });
-
-  
-
 };

@@ -1,3 +1,4 @@
+/* eslint-disable quotes */
 let searchTerm = "";
 
 console.log("search.js loaded");
@@ -26,8 +27,7 @@ $(document).ready(() => {
     });
   });
 
-
-  $(document).on("click", ".dropdown-item", (event) => {
+  $(document).on("click", ".dropdown-item", event => {
     console.log(event.target.id);
   });
 });
@@ -42,17 +42,22 @@ function listResults(results, playlists) {
   results.data.forEach(result => {
     //console.log(result);
 
-    const dropdown = $("<div class=\"dropdown\"></div>");
-  const addBtn = $("<button class=\"btn btn-secondary dropdown-toggle\" type=\"button\" id=\"dropdownMenuButton\" data-toggle=\"dropdown\" aria-haspopup=\"true\" aria-expanded=\"false\">Add To Playlist</button>");
-  const ddMenu = $("<div class=\"dropdown-menu\" aria-labelledby=\"dropdownMenuButton\"></div>");
-  
-  playlists.forEach(playlist => {
-    const menuItem = $(`<button class="dropdown-item" type="button" id="${playlist.id}">${playlist.playlistName}</button>`);
-    ddMenu.append(menuItem);
-  });
+    const dropdown = $('<div class="dropdown"></div>');
+    const addBtn = $(
+      '<button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Add To Playlist</button>'
+    );
+    const ddMenu = $(
+      '<div class="dropdown-menu" aria-labelledby="dropdownMenuButton"></div>'
+    );
+    playlists.forEach(playlist => {
+      const menuItem = $(
+        `<button class="dropdown-item" type="button" id="${playlist.id}">${playlist.playlistName}</button>`
+      );
+      ddMenu.append(menuItem);
+    });
 
-  dropdown.append(addBtn);
-  dropdown.append(ddMenu);
+    dropdown.append(addBtn);
+    dropdown.append(ddMenu);
 
     const li = $("<li></li>");
     const title = $(
@@ -78,4 +83,3 @@ function listResults(results, playlists) {
     $("#resList").append(li);
   });
 }
-
