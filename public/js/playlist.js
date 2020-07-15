@@ -43,7 +43,7 @@ $(document).ready(() => {
 
   function createPlaylistRow(playlistData) {
     const newTr = $("<tr>");
-    console.log(playlistData)
+    console.log(playlistData);
     newTr.data("playlist", playlistData);
     newTr.append("<td>" + playlistData.playlistName + "</td>");
     newTr.append("<td><a href='/search'>Edit Playlist</a></td>");
