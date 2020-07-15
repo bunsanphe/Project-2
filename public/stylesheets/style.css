@@ -2,3 +2,36 @@ form.signup,
 form.login {
   margin-top: 50px;
 }
+
+
+.row {
+  justify-content: center ;
+  text-align: center;
+  padding-top: 50px;
+}
+
+#search-form {
+  text-align: center;
+  padding: 50px;
+}
+
+.go-btn {
+  border-style: solid;
+  border-radius: 1ch;
+}
+
+#Search {
+  border-radius: 1ch;
+}
+
+.navbar-light .navbar-brand{
+  color:white;
+}
+
+.navbar-light .navbar-nav .nav-link {
+  color: aquamarine
+}
+
+.navbar-light .navbar-nav .active .nav-link, .navbar-light .navbar-nav .nav-link.active, .navbar-light .navbar-nav .nav-link.show, .navbar-light .navbar-nav .show>.nav-link {
+  font-weight: bold;
+}
