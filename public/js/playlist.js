@@ -46,7 +46,9 @@ $(document).ready(() => {
     console.log(playlistData);
     newTr.data("playlist", playlistData);
     newTr.append("<td>" + playlistData.playlistName + "</td>");
-    newTr.append("<td><a href='/search'>Edit Playlist</a></td>");
+    newTr.append(
+      `<td><a href='/playlistdetails/${playlistData.id}'>Edit Playlist</a></td>`
+    );
     newTr.append(
       "<td><a style='cursor:pointer; color:red' class='deletePlayList'>Delete Playlist</a></td>"
     );
