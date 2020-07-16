@@ -4,7 +4,7 @@ module.exports = function(app) {
   //create song
   app.post("/api/song", (req, res) => {
     db.Song.create({
-      songApiId: req.body.apiId,
+      songApiId: req.body.songApiId,
       artist: req.body.artist,
       songTitle: req.body.songTitle,
       album: req.body.album,
