@@ -44,7 +44,7 @@ $(document).ready(() => {
       `<td><a href='/playlistdetails/${playlistData.id}'>Edit Playlist</a></td>`
     );
     newTr.append(
-      "<td><a style='cursor:pointer; color:red' class='deletePlayList'>Delete Playlist</a></td>"
+      "<td><a style='cursor:pointer; color:red' class='deletePlayList'>Delete</a></td>"
     );
     return newTr;
   }
