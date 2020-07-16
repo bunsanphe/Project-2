@@ -28,7 +28,7 @@ $(document).ready(() => {
   });
 
   $(document).on("click", ".dropdown-item", event => {
-    console.log(event.target.id);
+    addToPlaylist(event.target.id, event.target.value);
   });
 });
 
@@ -51,7 +51,7 @@ function listResults(results, playlists) {
     );
     playlists.forEach(playlist => {
       const menuItem = $(
-        `<button class="dropdown-item" type="button" id="${playlist.id}">${playlist.playlistName}</button>`
+        `<button class="dropdown-item" type="button" value="${result.id}" id="${playlist.id}">${playlist.playlistName}</button>`
       );
       ddMenu.append(menuItem);
     });
@@ -59,7 +59,7 @@ function listResults(results, playlists) {
     dropdown.append(addBtn);
     dropdown.append(ddMenu);
 
-    const li = $("<li></li>");
+    const li = $(`<li></li>`);
     const title = $(
       `<a href=${result.link}><h4>Title: ${result.title}</h4></a>`
     );
@@ -81,5 +81,30 @@ function listResults(results, playlists) {
       .append(dropdown);
 
     $("#resList").append(li);
+  });
+}
+
+function addToPlaylist(playlist, song) {
+  const settings = {
+    async: true,
+    crossDomain: true,
+    url: `https://deezerdevs-deezer.p.rapidapi.com/track/${song}`,
+    method: "GET",
+    headers: {
+      "x-rapidapi-host": "deezerdevs-deezer.p.rapidapi.com",
+      "x-rapidapi-key": "a6472e3f9fmsh8e0c9042cb99723p17c4a5jsn05d9e87e7640"
+    }
+  };
+
+  $.ajax(settings).done(apiResponse => {
+    $.post("/api/song", {
+      songApiId: song,
+      artist: apiResponse.artist.name,
+      songTitle: apiResponse.title,
+      album: apiResponse.album.title,
+      PlaylistId: playlist
+    }).then(res => {
+      console.log(res);
+    });
   });
 }
