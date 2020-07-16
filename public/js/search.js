@@ -4,7 +4,8 @@ let searchTerm = "";
 console.log("search.js loaded");
 
 $(document).ready(() => {
-  $("#submit").click(() => {
+  $("form").on("submit", event => {
+    event.preventDefault();
     searchTerm = $("#Search").val();
 
     const settings = {
