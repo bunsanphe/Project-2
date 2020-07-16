@@ -5,14 +5,11 @@ $(document).ready(() => {
   $.get(`/api/song/${playlist}`).then(songs => {
     $("#songs").prepend($("<h2>Songs</h2><br>"));
     songs.forEach(song => {
-      console.log(song);
-      const jsonSong = JSON.parse(song);
-      console.log(jsonSong);
       //const songId = JSON.stringify(song.SongApiId);
       const settings = {
         async: true,
         crossDomain: true,
-        url: `https://deezerdevs-deezer.p.rapidapi.com/track/${songId}`,
+        url: `https://deezerdevs-deezer.p.rapidapi.com/track/${song.songApiId}`,
         method: "GET",
         headers: {
           "x-rapidapi-host": "deezerdevs-deezer.p.rapidapi.com",
