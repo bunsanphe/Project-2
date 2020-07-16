@@ -2,6 +2,10 @@ $(document).ready(() => {
   const playlist = $(".playlist").attr("id");
   console.log("playlist: " + $(".playlist").attr("id"));
 
+  $(document).on("click", "#delete", event => {
+    deleteSong(event.target.value);
+  });
+
   $.get(`/api/song/${playlist}`).then(songs => {
     $("#songs").prepend($("<h2>Songs</h2><br>"));
     songs.forEach(song => {
@@ -19,7 +23,7 @@ $(document).ready(() => {
 
       $.ajax(settings).done(apiResponse => {
         console.log(apiResponse);
-        const li = $("<li></li>");
+        const li = $(`<li id="${song.id}"></li>`);
         const title = $(
           `<a href=${apiResponse.link}><h4>Title: ${apiResponse.title}</h4></a>`
         );
@@ -34,13 +38,28 @@ $(document).ready(() => {
         Your browser does not support the audio tag.
       </audio>`);
 
+        const delBtn = $(
+          `<button type="button" id="delete" value="${song.id}">Delete Song</button>`
+        );
+
         li.append(title)
           .append(artist)
           .append(album)
-          .append(sample);
+          .append(sample)
+          .append(delBtn);
 
         $("#songList").append(li);
       });
     });
   });
 });
+
+function deleteSong(songId) {
+  $.ajax({
+    method: "DELETE",
+    url: "/api/song/" + songId
+  }).done(res => {
+    console.log(res);
+    $("li").remove(`#${songId}`);
+  });
+}

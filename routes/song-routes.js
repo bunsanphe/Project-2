@@ -24,4 +24,14 @@ module.exports = function(app) {
       res.json(dbSong);
     });
   });
+
+  app.delete("/api/song/:id", (req, res) => {
+    db.Song.destroy({
+      where: {
+        id: req.params.id
+      }
+    }).then(dbSong => {
+      res.json(dbSong);
+    });
+  });
 };

@@ -26,7 +26,10 @@ module.exports = function(app) {
   });
 
   app.get("/search", (req, res) => {
-    res.render("search");
+    if (req.user) {
+      res.render("search");
+    }
+    res.render("login");
   });
 
   app.get("/playlistdetails/:id", (req, res) => {
