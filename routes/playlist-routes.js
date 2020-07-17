@@ -51,9 +51,9 @@ module.exports = function(app) {
 
   // Create route to delete playlist
   app.delete("/api/playlist/:id", (req, res) => {
-    db.Playlist.destroy(req.body, {
+    db.Playlist.destroy({
       where: {
-        id: req.body.id
+        id: req.params.id
       }
     }).then(dbPlaylist => {
       res.json(dbPlaylist);

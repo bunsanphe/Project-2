@@ -8,13 +8,13 @@ $(document).ready(() => {
   getPlaylist();
 
   $("#add").click(() => {
-    if (
-      !Name.val()
-        .trim()
-        .trim()
-    ) {
-      return;
-    }
+    // if (
+    //   !Name.val()
+    //     .trim()
+    //     .trim()
+    // ) {
+    //   return;
+    // }
     const Name = $("#playlist").val();
     console.log(Name);
     upsertPlaylist(Name);
@@ -37,7 +37,7 @@ $(document).ready(() => {
   }
 
   function createPlaylistRow(playlistData) {
-    const newTr = $("<tr>");
+    const newTr = $(`<tr id="${playlistData.id}">`);
     newTr.data("playlist", playlistData);
     newTr.append("<td>" + playlistData.playlistName + "</td>");
     newTr.append(
@@ -76,6 +76,9 @@ $(document).ready(() => {
     $.ajax({
       method: "DELETE",
       url: "/api/playlist/" + id
-    }).then(getPlaylist);
+    }).then(res => {
+      $("tr").remove(`#${id}`);
+      console.log(res);
+    });
   }
 });
