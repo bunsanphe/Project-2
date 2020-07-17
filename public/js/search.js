@@ -1,31 +1,17 @@
 /* eslint-disable quotes */
-let searchTerm = "";
 
 console.log("search.js loaded");
 
 $(document).ready(() => {
+  //$("#results").hide();
   $("form").on("submit", event => {
     event.preventDefault();
-    searchTerm = $("#Search").val();
+    search($("#search").val());
+  });
 
-    const settings = {
-      async: true,
-      crossDomain: true,
-      url: "https://deezerdevs-deezer.p.rapidapi.com/search?q=" + searchTerm,
-      method: "GET",
-      headers: {
-        "x-rapidapi-host": "deezerdevs-deezer.p.rapidapi.com",
-        "x-rapidapi-key": "a6472e3f9fmsh8e0c9042cb99723p17c4a5jsn05d9e87e7640"
-      }
-    };
-
-    //console.log("searchTerm: " + searchTerm);
-
-    $.ajax(settings).done(response => {
-      $.get("/api/playlist").then(playlists => {
-        listResults(response, playlists);
-      });
-    });
+  $("#submit").click(event => {
+    event.preventDefault();
+    search($("#search").val());
   });
 
   $(document).on("click", ".dropdown-item", event => {
@@ -34,8 +20,8 @@ $(document).ready(() => {
 });
 
 function listResults(results, playlists) {
-  $("#results").prepend($("<h2>Results</h2><br>"));
-
+  //$("#results").show();
+  $("#resList").empty();
   //console.log(playlists);
 
   //console.log(dropdown);
@@ -106,6 +92,27 @@ function addToPlaylist(playlist, song) {
       PlaylistId: playlist
     }).then(res => {
       console.log(res);
+    });
+  });
+}
+
+function search(searchTerm) {
+  const settings = {
+    async: true,
+    crossDomain: true,
+    url: "https://deezerdevs-deezer.p.rapidapi.com/search?q=" + searchTerm,
+    method: "GET",
+    headers: {
+      "x-rapidapi-host": "deezerdevs-deezer.p.rapidapi.com",
+      "x-rapidapi-key": "a6472e3f9fmsh8e0c9042cb99723p17c4a5jsn05d9e87e7640"
+    }
+  };
+
+  //console.log("searchTerm: " + searchTerm);
+
+  $.ajax(settings).done(response => {
+    $.get("/api/playlist").then(playlists => {
+      listResults(response, playlists);
     });
   });
 }

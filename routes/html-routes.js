@@ -10,7 +10,10 @@ module.exports = function(app) {
     if (req.user) {
       res.render("members");
     }
-    res.render("login");
+    else {
+
+      res.render("login");
+    }
   });
 
   app.get("/login", (req, res) => {
@@ -18,7 +21,10 @@ module.exports = function(app) {
     if (req.user) {
       res.render("members");
     }
-    res.render("login");
+    else {
+
+      res.render("login");
+    }
   });
 
   app.get("/signup", (req, res) => {
@@ -29,7 +35,10 @@ module.exports = function(app) {
     if (req.user) {
       res.render("search");
     }
-    res.render("login");
+    else {
+
+      res.render("login");
+    }
   });
 
   app.get("/playlistdetails/:id", (req, res) => {
