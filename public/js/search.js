@@ -20,6 +20,7 @@ $(document).ready(() => {
 });
 
 function listResults(results, playlists) {
+  // eslint-disable-next-line no-var
   var iter = 0;
   $("#results").show();
   $("#results").empty();
@@ -28,7 +29,6 @@ function listResults(results, playlists) {
   console.log(results.data.length);
   console.log(results);
   //console.log(dropdown);
-
 
   for (let i = 0; i < results.data.length / 4; i++) {
     //console.log("inside row");
@@ -64,7 +64,9 @@ function listResults(results, playlists) {
       // const artistImg = $(`<img src="${results.data.[i].artist.picture_medium}">`); // add link to artist
       // const artistTitle = $(`<p>Artist: ${results.data.[i].artist.name}</p>`); // add link to artist
       // const cardCol2 = $(`<div class="col-xs-12 col-sm-6 col-no-padding"></div>`);
-      const albumImg = $(`<img src="${results.data[iter].album.cover_medium}">`);
+      const albumImg = $(
+        `<img src="${results.data[iter].album.cover_medium}">`
+      );
       const albumTitle = $(`<p>Album: ${results.data[iter].album.title}</p>`);
       const cardUl = $(`<ul class="list-group list-group-flush"></ul>`);
       const cardLi1 = $(
@@ -146,33 +148,33 @@ function listResults(results, playlists) {
 
   //   $("#results").append(card);
 
-    //   const audioSample = $(`<p>Sample</p><audio controls>
-    //   <source src="${result.preview}" type="audio/mpeg">
-    //   Your browser does not support the audio tag.
-    // </audio>`);
+  //   const audioSample = $(`<p>Sample</p><audio controls>
+  //   <source src="${result.preview}" type="audio/mpeg">
+  //   Your browser does not support the audio tag.
+  // </audio>`);
 
-    //   const li = $(`<li></li>`);
-    //   const title = $(
-    //     `<a href=${result.link}><h4>Title: ${result.title}</h4></a>`
-    //   );
-    //   const artist = $(
-    //     `<img src=${result.artist.picture_small}><p>Artist: ${result.artist.name}</p>`
-    //   );
-    //   const album = $(
-    //     `<img src=${result.album.cover_small}><p>Album: ${result.album.title}</p>`
-    //   );
-    //   const sample = $(`<p>Sample</p><audio controls>
-    //   <source src="${result.preview}" type="audio/mpeg">
-    //   Your browser does not support the audio tag.
-    // </audio>`);
+  //   const li = $(`<li></li>`);
+  //   const title = $(
+  //     `<a href=${result.link}><h4>Title: ${result.title}</h4></a>`
+  //   );
+  //   const artist = $(
+  //     `<img src=${result.artist.picture_small}><p>Artist: ${result.artist.name}</p>`
+  //   );
+  //   const album = $(
+  //     `<img src=${result.album.cover_small}><p>Album: ${result.album.title}</p>`
+  //   );
+  //   const sample = $(`<p>Sample</p><audio controls>
+  //   <source src="${result.preview}" type="audio/mpeg">
+  //   Your browser does not support the audio tag.
+  // </audio>`);
 
-    //   li.append(title)
-    //     .append(artist)
-    //     .append(album)
-    //     .append(sample)
-    //     .append(dropdown);
+  //   li.append(title)
+  //     .append(artist)
+  //     .append(album)
+  //     .append(sample)
+  //     .append(dropdown);
 
-    //   $("#resList").append(li);
+  //   $("#resList").append(li);
   //});
 }
 
