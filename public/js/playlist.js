@@ -8,20 +8,14 @@ $(document).ready(() => {
   getPlaylist();
 
   $("#add").click(() => {
-    // if (
-    //   !Name.val()
-    //     .trim()
-    //     .trim()
-    // ) {
-    //   return;
-    // }
     const Name = $("#playlist").val();
-    console.log(Name);
+    if (!Name.trim().trim()) {
+      return;
+    }
     upsertPlaylist(Name);
   });
 
   function upsertPlaylist(playlistData) {
-    console.log(playlistData);
     $.post("/api/playlist", { playlistName: playlistData }).then(getPlaylist);
   }
 
@@ -41,10 +35,11 @@ $(document).ready(() => {
     newTr.data("playlist", playlistData);
     newTr.append("<td>" + playlistData.playlistName + "</td>");
     newTr.append(
-      `<td><a href='/playlistdetails/${playlistData.id}'>Edit Playlist</a></td>`
+      `<td><a href='/playlistdetails/${playlistData.id}'>O.O</a></td>`
     );
+    newTr.append("<td><a href='/search'>+_+</a></td>");
     newTr.append(
-      "<td><a style='cursor:pointer; color:red' class='deletePlayList'>Delete</a></td>"
+      "<td><a style='cursor:pointer; color:red' class='deletePlayList'>X</a></td>"
     );
     return newTr;
   }
