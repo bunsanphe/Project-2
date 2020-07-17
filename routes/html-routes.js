@@ -9,9 +9,7 @@ module.exports = function(app) {
     // If the user already has an account send them to the members page
     if (req.user) {
       res.render("members");
-    }
-    else {
-
+    } else {
       res.render("login");
     }
   });
@@ -20,9 +18,7 @@ module.exports = function(app) {
     // If the user already has an account send them to the members page
     if (req.user) {
       res.render("members");
-    }
-    else {
-
+    } else {
       res.render("login");
     }
   });
@@ -34,9 +30,7 @@ module.exports = function(app) {
   app.get("/search", (req, res) => {
     if (req.user) {
       res.render("search");
-    }
-    else {
-
+    } else {
       res.render("login");
     }
   });

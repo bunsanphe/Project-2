@@ -3,7 +3,7 @@
 console.log("search.js loaded");
 
 $(document).ready(() => {
-  //$("#results").hide();
+  $("#results").hide();
   $("form").on("submit", event => {
     event.preventDefault();
     search($("#search").val());
@@ -20,7 +20,7 @@ $(document).ready(() => {
 });
 
 function listResults(results, playlists) {
-  //$("#results").show();
+  $("#results").show();
   $("#resList").empty();
   //console.log(playlists);
 
