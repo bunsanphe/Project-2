@@ -9,16 +9,18 @@ module.exports = function(app) {
     // If the user already has an account send them to the members page
     if (req.user) {
       res.render("members");
+    } else {
+      res.render("login");
     }
-    res.render("login");
   });
 
   app.get("/login", (req, res) => {
     // If the user already has an account send them to the members page
     if (req.user) {
       res.render("members");
+    } else {
+      res.render("login");
     }
-    res.render("login");
   });
 
   app.get("/signup", (req, res) => {
@@ -28,8 +30,9 @@ module.exports = function(app) {
   app.get("/search", (req, res) => {
     if (req.user) {
       res.render("search");
+    } else {
+      res.render("login");
     }
-    res.render("login");
   });
 
   app.get("/playlistdetails/:id", (req, res) => {
