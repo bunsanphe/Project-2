@@ -49,17 +49,17 @@ function listResults(results, playlists) {
 
       const card = $(`<div class="card"></div>`);
       const cardTitle = $(
-        `<div class="card-title" style="margin-top:15px;margin-bottom:0px"><a href=${results.data[iter].link}>${results.data[iter].title}</a></div>`
+        `<div class="card-title" style="margin-top:15px;margin-bottom:0px"><a class="card-title" href=${results.data[iter].link}>${results.data[iter].title}</a></div>`
       );
       const cardBody = $(`<div class="card-body"></div>`);
       const albumImg = $(
         `<img width="125px" height="125px" src="${results.data[iter].album.cover_medium}">`
       );
       const artistTitle = $(
-        `<p style="margin-top:5px;margin-bottom:5px">Artist: ${results.data[iter].artist.name}</p>`
+        `<p class = "cardtext" style="margin-top:5px;margin-bottom:5px">Artist: ${results.data[iter].artist.name}</p>`
       );
       const albumTitle = $(
-        `<p style="font-size:14px">Album: ${results.data[iter].album.title}</p>`
+        `<p class = "cardtext" style="font-size:14px">Album: ${results.data[iter].album.title}</p>`
       );
       const cardUl = $(`<ul class="list-group list-group-flush"></ul>`);
       const cardLi1 = $(
