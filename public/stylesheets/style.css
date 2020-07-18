@@ -1,5 +1,5 @@
-form.signup,
-form.login {
+.signup-form,
+.login-form {
   margin-top: 50px;
 }
 
@@ -27,6 +27,14 @@ form.login {
   background-color: aquamarine;
   font-weight: bold;
 }
+
+.signup-btn {
+  border-style: solid;
+  border-radius: 1ch;
+  background-color: aquamarine;
+  font-weight: bold;
+}
+
 .playlist-btn {
   border-radius: 1ch;
   background-color: aquamarine;
