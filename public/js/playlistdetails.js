@@ -50,7 +50,7 @@ function deleteSong(songId) {
     url: "/api/song/" + songId
   }).done(() => {
     //console.log(res);
-    $("li").remove(`#${songId}`);
+    $(".card").remove(`#${songId}`);
   });
 }
 
@@ -70,7 +70,7 @@ function createSongCard(song, row) {
     //console.log(apiResponse);
     const col = $(`<div class="col-xs-6 col-sm-6 col-lg-6 col-xl-3"></div>`);
 
-    const card = $(`<div class="card"></div>`);
+    const card = $(`<div class="card" id="${song.id}"></div>`);
     const cardTitle = $(
       `<div class="card-title" style="margin-top:15px;margin-bottom:0px"><a href=${apiResponse.link}><p style="margin-bottom:0px">Title: ${apiResponse.title}</p></a></div>`
     );
