@@ -53,19 +53,19 @@ function createSongCard(song, row) {
     );
     // eslint-disable-next-line quotes
     const cardUl = $(`<ul class="list-group list-group-flush"></ul>`);
-    // const cardLi1 = $(
-    //   `<li class="list-group-item"><audio controls>
-    //   <source src="${apiResponse.preview}" type="audio/mpeg">
-    //   Your browser does not support the audio tag.
-    // </audio></li>`
-    // );
+    const cardLi1 = $(
+      `<li class="list-group-item"><audio controls>
+      <source src="${apiResponse.preview}" type="audio/mpeg">
+      Your browser does not support the audio tag.
+    </audio></li>`
+    );
     const cardLi2 = $(
       `<li class="list-group-item"><button type="button" id="delete" value="${song.id}">Delete Song</button></li>`
     );
 
     //cardLi2.append(dropdown);
 
-    //cardUl.append(cardLi1);
+    cardUl.append(cardLi1);
     cardUl.append(cardLi2);
 
     cardBody
