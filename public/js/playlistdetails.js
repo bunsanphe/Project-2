@@ -76,6 +76,7 @@ function createSongCard(song, row) {
     );
     // eslint-disable-next-line quotes
     const cardBody = $(`<div class="card-body"></div>`);
+    // eslint-disable-next-line prettier/prettier
     const albumImg = $(`<img width="125px" height="125px" src=${apiResponse.album.cover_medium}>`);
     const albumTitle = $(`<p>Album: ${apiResponse.album.title}</p>`);
     const artistTitle = $(`<p>Artist: ${apiResponse.artist.name}</p>`);
