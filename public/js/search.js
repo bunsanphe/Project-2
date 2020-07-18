@@ -30,12 +30,12 @@ function listResults(results, playlists) {
       //console.log("inside col");
       const col = $(`<div class="col-xs-6 col-sm-3"></div>`);
 
-      const dropdown = $('<div class="dropdown"></div>');
+      const dropdown = $(`<div class="dropdown"></div>`);
       const addBtn = $(
-        '<button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Add To Playlist</button>'
+        `<button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Add To Playlist</button>`
       );
       const ddMenu = $(
-        '<div class="dropdown-menu" aria-labelledby="dropdownMenuButton"></div>'
+        `<div class="dropdown-menu" aria-labelledby="dropdownMenuButton"></div>`
       );
       playlists.forEach(playlist => {
         const menuItem = $(
@@ -68,7 +68,10 @@ function listResults(results, playlists) {
       cardUl.append(cardLi1).append(cardLi2);
 
       //cardCol1.append(artistImg).append(artistTitle);
-      cardBody.append(albumImg).append(artistTitle).append(albumTitle);
+      cardBody
+        .append(albumImg)
+        .append(artistTitle)
+        .append(albumTitle);
 
       cardBody.append(cardUl);
 

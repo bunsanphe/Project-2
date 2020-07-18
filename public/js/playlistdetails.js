@@ -1,3 +1,4 @@
+/* eslint-disable quotes */
 $(document).ready(() => {
   const playlist = $(".playlist").attr("id");
   //console.log("playlist: " + $(".playlist").attr("id"));
@@ -94,7 +95,10 @@ function createSongCard(song, row) {
 
     cardUl.append(cardLi1).append(cardLi2);
 
-    cardBody.append(albumImg).append(artistTitle).append(albumTitle);
+    cardBody
+      .append(albumImg)
+      .append(artistTitle)
+      .append(albumTitle);
 
     cardBody.append(cardUl);
 
