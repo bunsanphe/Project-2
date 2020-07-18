@@ -1,47 +1,12 @@
 /* eslint-disable quotes */
 $(document).ready(() => {
-  const playlist = $(".playlist").attr("id");
   //console.log("playlist: " + $(".playlist").attr("id"));
 
   $(document).on("click", "#delete", event => {
     deleteSong(event.target.value);
   });
 
-  $.get(`/api/song/${playlist}`).then(songs => {
-    // eslint-disable-next-line no-var
-    var iter = 0;
-
-    const totalRows = Math.floor(songs.length / 4);
-    //console.log("total rows: " + totalRows);
-    const remainCols = songs.length % 4;
-
-    //console.log("remaincols: " + remainCols);
-    //console.log(songs[0].id);
-
-    for (let i = 0; i < totalRows; i++) {
-      const row = $(`<div class="row" id="${songs[iter].id}"></div>`);
-      for (let j = 0; j < 4; j++) {
-        //console.log("songs iter: " + songs[iter]);
-        createSongCard(songs[iter], row);
-        iter++;
-      }
-      //console.log(row);
-      $("#results").append(row);
-    }
-
-    //console.log(remainCols);
-    if (remainCols > 0) {
-      //console.log("inside if");
-      const row = $(`<div class="row" id="${songs[iter].id}"></div>`);
-      for (let k = 0; k < remainCols; k++) {
-        //console.log("songs iter: " + songs[iter]);
-        createSongCard(songs[iter], row);
-        iter++;
-      }
-      //console.log(row);
-      $("#results").append(row);
-    }
-  });
+  createCards();
 });
 
 function deleteSong(songId) {
@@ -51,6 +16,8 @@ function deleteSong(songId) {
   }).done(() => {
     //console.log(res);
     $(".card").remove(`#${songId}`);
+    $("#results").empty();
+    createCards();
   });
 }
 
@@ -113,5 +80,44 @@ function createSongCard(song, row) {
 
     col.append(card);
     row.append(col);
+  });
+}
+
+function createCards() {
+  const playlist = $(".playlist").attr("id");
+  $.get(`/api/song/${playlist}`).then(songs => {
+    // eslint-disable-next-line no-var
+    var iter = 0;
+
+    const totalRows = Math.floor(songs.length / 4);
+    //console.log("total rows: " + totalRows);
+    const remainCols = songs.length % 4;
+
+    //console.log("remaincols: " + remainCols);
+    //console.log(songs[0].id);
+
+    for (let i = 0; i < totalRows; i++) {
+      const row = $(`<div class="row" id="${songs[iter].id}"></div>`);
+      for (let j = 0; j < 4; j++) {
+        //console.log("songs iter: " + songs[iter]);
+        createSongCard(songs[iter], row);
+        iter++;
+      }
+      //console.log(row);
+      $("#results").append(row);
+    }
+
+    //console.log(remainCols);
+    if (remainCols > 0) {
+      //console.log("inside if");
+      const row = $(`<div class="row" id="${songs[iter].id}"></div>`);
+      for (let k = 0; k < remainCols; k++) {
+        //console.log("songs iter: " + songs[iter]);
+        createSongCard(songs[iter], row);
+        iter++;
+      }
+      //console.log(row);
+      $("#results").append(row);
+    }
   });
 }
