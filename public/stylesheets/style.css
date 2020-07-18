@@ -166,3 +166,7 @@ audio { width: 175px; }
   background-color: rgb(64,64,64);
   color: white;
 }
+
+.search-input {
+  border-radius: 1ch;
+}
