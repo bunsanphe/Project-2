@@ -62,13 +62,14 @@ function listResults(results, playlists) {
         `<p style="font-size:14px">Album: ${results.data[iter].album.title}</p>`
       );
       const cardUl = $(`<ul class="list-group list-group-flush"></ul>`);
-      // const cardLi1 = $(
-      //   `<li class="list-group-item"><audio controls><source src="${results.data[iter].preview}" type="audio/mpeg">Your browser does not support the audio tag.</audio></li>`
-      // );
+      const cardLi1 = $(
+        `<li class="list-group-item"><audio controls><source src="${results.data[iter].preview}" type="audio/mpeg">Your browser does not support the audio tag.</audio></li>`
+      );
       const cardLi2 = $(`<li class="list-group-item"></li>`);
 
       cardLi2.append(dropdown);
 
+      cardUl.append(cardLi1);
       cardUl.append(cardLi2);
 
       //cardCol1.append(artistImg).append(artistTitle);
