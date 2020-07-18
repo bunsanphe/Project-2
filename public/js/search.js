@@ -28,7 +28,7 @@ function listResults(results, playlists) {
     const row = $(`<div class="row"></div>`);
     for (let j = 0; j < 4; j++) {
       //console.log("inside col");
-      const col = $(`<div class="col-xs-6 col-sm-6 col-lg-6"></div>`);
+      const col = $(`<div class="col-xs-6 col-sm-6 col-lg-6 col-xl-3"></div>`);
 
       const dropdown = $(`<div class="dropdown"></div>`);
       const addBtn = $(
