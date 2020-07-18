@@ -43,6 +43,14 @@
   margin-top: 10px;
 }
 
+.btn-secondary{
+  border-radius: 1ch;
+  background-color: aquamarine;
+  font-weight: bold;
+  margin-top: 10px;
+  color: black;
+}
+
 #Search {
   border-radius: 1ch;
 }
