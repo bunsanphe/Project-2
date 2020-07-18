@@ -32,6 +32,8 @@
   border-radius: 1ch;
   background-color: aquamarine;
   font-weight: bold;
+  border-color: rgb(216, 216, 216);
+  padding: 1px 7px 2px;
 }
 
 .playlist-btn {
@@ -74,6 +76,7 @@ text-align: center;
   margin-right: 100px;
   padding: 40px
 }
+
 
 audio { width: 175px; }
 
@@ -124,4 +127,34 @@ audio { width: 175px; }
       padding-top: 10px;
       padding-bottom: 10px;
   }
+}
+.card {
+  background-color: rgb(64,64,64);
+}
+
+.cardtext {
+  color: white;
+}
+
+.card-title {
+  color:aquamarine !important;
+  font-weight: bold;
+}
+
+.list-group-item {
+  background-color: rgb(64,64,64);
+}
+
+#delete {
+  background-color: aquamarine;
+  font-weight: bold;
+  border-radius: 1ch;
+}
+
+.playlist-header {
+  background-color: rgb(64,64,64);
+}
+.table-header {
+  background-color: rgb(64,64,64);
+  color: white;
 }

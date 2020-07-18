@@ -39,17 +39,17 @@ function createSongCard(song, row) {
 
     const card = $(`<div class="card" id="${song.id}"></div>`);
     const cardTitle = $(
-      `<div class="card-title" style="margin-top:15px;margin-bottom:0px"><a href=${apiResponse.link}><p style="margin-bottom:0px">Title: ${apiResponse.title}</p></a></div>`
+      `<div class="card-title" style="margin-top:15px;margin-bottom:0px"><a href=${apiResponse.link}><p style="margin-bottom:0px" class="card-title">Title: ${apiResponse.title}</p></a></div>`
     );
     // eslint-disable-next-line quotes
     const cardBody = $(`<div class="card-body"></div>`);
     // eslint-disable-next-line prettier/prettier
     const albumImg = $(`<img width="125px" height="125px" src=${apiResponse.album.cover_medium}>`);
     const albumTitle = $(
-      `<p style="font-size:14px">Album: ${apiResponse.album.title}</p>`
+      `<p style="font-size:14px" class="cardtext">Album: ${apiResponse.album.title}</p>`
     );
     const artistTitle = $(
-      `<p style="margin-top:5px;margin-bottom:5px">Artist: ${apiResponse.artist.name}</p>`
+      `<p style="margin-top:5px;margin-bottom:5px" class="cardtext">Artist: ${apiResponse.artist.name}</p>`
     );
     // eslint-disable-next-line quotes
     const cardUl = $(`<ul class="list-group list-group-flush"></ul>`);
