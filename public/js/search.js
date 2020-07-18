@@ -28,7 +28,7 @@ function listResults(results, playlists) {
     const row = $(`<div class="row"></div>`);
     for (let j = 0; j < 4; j++) {
       //console.log("inside col");
-      const col = $(`<div class="col-xs-6 col-sm-3"></div>`);
+      const col = $(`<div class="col-xs-6 col-sm-6 col-lg-6"></div>`);
 
       const dropdown = $(`<div class="dropdown"></div>`);
       const addBtn = $(
@@ -53,19 +53,19 @@ function listResults(results, playlists) {
       );
       const cardBody = $(`<div class="card-body"></div>`);
       const albumImg = $(
-        `<img src="${results.data[iter].album.cover_medium}">`
+        `<img width="125px" height="125px" src="${results.data[iter].album.cover_medium}">`
       );
       const artistTitle = $(`<p>Artist: ${results.data[iter].artist.name}</p>`);
       const albumTitle = $(`<p>Album: ${results.data[iter].album.title}</p>`);
       const cardUl = $(`<ul class="list-group list-group-flush"></ul>`);
-      const cardLi1 = $(
-        `<li class="list-group-item"><audio controls><source src="${results.data[iter].preview}" type="audio/mpeg">Your browser does not support the audio tag.</audio></li>`
-      );
+      // const cardLi1 = $(
+      //   `<li class="list-group-item"><audio controls><source src="${results.data[iter].preview}" type="audio/mpeg">Your browser does not support the audio tag.</audio></li>`
+      // );
       const cardLi2 = $(`<li class="list-group-item"></li>`);
 
       cardLi2.append(dropdown);
 
-      cardUl.append(cardLi1).append(cardLi2);
+      cardUl.append(cardLi2);
 
       //cardCol1.append(artistImg).append(artistTitle);
       cardBody

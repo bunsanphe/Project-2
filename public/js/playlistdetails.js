@@ -68,32 +68,33 @@ function createSongCard(song, row) {
 
   $.ajax(settings).done(apiResponse => {
     //console.log(apiResponse);
-    const col = $(`<div class="col-xs-6 col-sm-3"></div>`);
+    const col = $(`<div class="col-xs-6 col-sm-6 col-lg-6 col-xl-3"></div>`);
 
     const card = $(`<div class="card"></div>`);
     const cardTitle = $(
-      `<div class="card-title"><a href=${apiResponse.link}><h2>Title: ${apiResponse.title}</h2></a></div>`
+      `<div class="card-title"><a href=${apiResponse.link}><p>Title: ${apiResponse.title}</p></a></div>`
     );
     // eslint-disable-next-line quotes
     const cardBody = $(`<div class="card-body"></div>`);
-    const albumImg = $(`<img src=${apiResponse.album.cover_medium}>`);
+    const albumImg = $(`<img width="125px" height="125px" src=${apiResponse.album.cover_medium}>`);
     const albumTitle = $(`<p>Album: ${apiResponse.album.title}</p>`);
     const artistTitle = $(`<p>Artist: ${apiResponse.artist.name}</p>`);
     // eslint-disable-next-line quotes
     const cardUl = $(`<ul class="list-group list-group-flush"></ul>`);
-    const cardLi1 = $(
-      `<li class="list-group-item"><audio controls>
-      <source src="${apiResponse.preview}" type="audio/mpeg">
-      Your browser does not support the audio tag.
-    </audio></li>`
-    );
+    // const cardLi1 = $(
+    //   `<li class="list-group-item"><audio controls>
+    //   <source src="${apiResponse.preview}" type="audio/mpeg">
+    //   Your browser does not support the audio tag.
+    // </audio></li>`
+    // );
     const cardLi2 = $(
       `<li class="list-group-item"><button type="button" id="delete" value="${song.id}">Delete Song</button></li>`
     );
 
     //cardLi2.append(dropdown);
 
-    cardUl.append(cardLi1).append(cardLi2);
+    //cardUl.append(cardLi1);
+    cardUl.append(cardLi2);
 
     cardBody
       .append(albumImg)

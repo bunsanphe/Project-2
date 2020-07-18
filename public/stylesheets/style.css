@@ -68,6 +68,8 @@ text-align: center;
   padding: 25px
 }
 
+
+
 .footer {
   padding-top: 20px;
   padding-bottom: 20px;
@@ -87,7 +89,6 @@ text-align: center;
 .wrapper {
   min-height: 100%;
 }
-
 
 /* media */
 @media (max-width: 992px) {
