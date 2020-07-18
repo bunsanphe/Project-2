@@ -3,7 +3,6 @@
   margin-top: 50px;
 }
 
-
 .row {
   justify-content: center ;
   text-align: center;
@@ -123,8 +122,5 @@ text-align: center;
   .ml-auto {
       padding-top: 10px;
       padding-bottom: 10px;
-  }
-  p {
-      margin-top: 6px;
   }
 }
