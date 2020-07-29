@@ -5,6 +5,7 @@ const exphbs = require("express-handlebars");
 // Requiring passport as we've configured it
 const passport = require("./config/passport");
 
+const compression = require("compression");
 // Setting up port and requiring models for syncing
 const PORT = process.env.PORT || 8080;
 const db = require("./models");
@@ -24,6 +25,24 @@ app.use(passport.session());
 //handlebars
 app.engine("handlebars", exphbs({ defaultLayout: "main" }));
 app.set("view engine", "handlebars");
+
+//NPM compression
+app.use(compression);
+
+//server-sent Events
+app.get("/events", (req, res) {
+  res.setHeader("Content-Type", "text/event-stream")
+  res.setHeader("Cache-Control", "no-cache")
+
+  var timer = setInterval( () => {
+    res.write("data: ping\n\n")
+    res.flush()
+  }, 2000)
+
+  res.on("close", () => {
+    clearInterval(timer)
+  })
+})
 
 // Requiring our routes
 require("./routes/html-routes.js")(app);
